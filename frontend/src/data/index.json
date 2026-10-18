@@ -1,0 +1,80 @@
+{
+  "skills": [
+    {
+      "id": "1",
+      "src": "/img/product-chain-1.png",
+      "title": "Front-End",
+      "description": "Je metrise la React(html/css js)"
+    },
+    {
+      "id": "2",
+      "src": "/img/tag-1.png",
+      "title": "Back-End",
+      "description": "Je metrise la python(FastApi/Flask)"
+    },
+    {
+      "id": "3",
+      "src": "/img/product-chain-1.png",
+      "title": "Creation de contenu",
+      "description": "Je fait de la creation de contenu dans le quel j'explique les concepts info  en bambara"
+    },
+    {
+      "id": "4",
+      "src": "/img/feather-pen-2.png",
+      "title": "Montage-Video",
+      "description": "J'ai une base solide en Capcut premier pro  "
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "1",
+      "src": "/img/placeholder-image-1.png",
+      "title": "Ahuse",
+      "description": "JE metrise la front-end:html/css ,react ,tkinter",
+      "link": "Voir dans github"
+    },
+    {
+      "id": "2",
+      "src": "/img/placeholder-image-2.png",
+      "title": "App Dashboard",
+      "description": "JE metrise la front-end:html/css ,react ,tkinter",
+      "link": "Voir dans github"
+    },
+    {
+      "id": "3",
+      "src": "/img/placeholder-image.png",
+      "title": "Easy Rentn",
+      "description": "Je fait de la creation de contenu ou j'explique les concepts info  en bambara",
+      "link": "Voir dans github"
+    }
+  ],
+  "testimonial": [
+    {
+      "id": "1",
+      "count": "5",
+      "src": "/img/avatar-image-1.png",
+
+      "description": "JE metrise la front-end:html/css ,react ,tkinter",
+      "author_name": "Marley",
+      "author_designation": "Lieutement le plus celebres"
+    },
+    {
+      "id": "2",
+      "count": "5",
+      "src": "/img/avatar-image-2.png",
+
+      "description": "JE metrise la front-end:html/css ,react ,tkinter",
+      "author_name": "Finda",
+      "author_designation": "Finda's fasfion"
+    },
+
+    {
+      "count": "5",
+      "src": "/img/avatar-image.png",
+
+      "description": "Ingenier en conceptiond es drones ",
+      "author_name": "Aymar",
+      "author_designation": "Drône Mali"
+    }
+  ]
+}

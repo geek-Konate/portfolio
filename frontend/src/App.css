@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Dans votre CSS */
+
+body {
+  margin: 0;
+  font-style: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+:root {
+  --primary: #5e3bee;
+  --heading-color: #282938;
+  --bg-shade: #f5fcff;
+  --githup: #e62872;
+  --darkblue: #1c1e53;
+  --black: #000000;
+  --white: #ffff;
+}
+
+.navbar {
+  font-weight: bold;
+  color: gray;
+  text-decoration: none;
+  transition: ease 0.4s;
+}
+
+.navbar:hover {
+  color: #000000;
+}
+
+/* Styles pour le menu hamburger */
+.nav__hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav__hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.nav__hamburger.active .nav__hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.nav__hamburger.active .nav__hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__hamburger.active .nav__hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Menu mobile */
+.navbar__items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.navbar__items.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 768px) {
+  .navbar__items {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: none;
+  }
+
+  .nav__hamburger {
+    display: none;
+  }
+}
+
+.navbar-active {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  margin-top: 10px;
+}
+@media (min-width: 640px) {
+  .container {
+    padding: 1.5rem; /* 24px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 2rem; /* 32px */
+  }
+}
+
+/* Optionnel: Container fluide pour très petits écrans */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem; /* 12px */
+    margin-top: 0.5rem; /* 8px */
+  }
+}
+.link {
+  color: white;
+  text-shadow: #f5fcff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.link:hover {
+  list-style: var(--primary);
+}

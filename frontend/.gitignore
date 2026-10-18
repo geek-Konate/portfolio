@@ -1,0 +1,72 @@
+# ============ NODE/REACT ============
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# ============ ENVIRONNEMENT ============
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+.secret
+*.key
+*.pem
+
+# ============ BUILD/DIST ============
+/dist
+/build
+/out
+/.next
+/.nuxt
+/server/public
+/client/public/build
+
+# ============ IDE/EDITORS ============
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ============ SYSTÈME ============
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ============ LOGS ============
+*.log
+logs/
+
+# ============ MISC ============
+*.tmp
+*.temp
+.cache/
+.parcel-cache/
+.eslintcache
+.prettiercache
+.coverage/
+.nyc_output/
+
+# ============ DATABASE (si tu as) ============
+*.db
+*.sqlite
+*.sqlite3
+/database/backups/
+
+# ============ UPLOADS (si tu as) ============
+/uploads/
+/tmp/
+/storage/

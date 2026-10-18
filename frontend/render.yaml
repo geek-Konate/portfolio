@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: portfolio-frontend
+    env: static
+    region: frankfurt
+    plan: free
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://portfolio-backend-iymh.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
