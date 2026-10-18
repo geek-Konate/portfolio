@@ -1,0 +1,93 @@
+service:
+
+  db:
+   image: postgres:16-alpine
+   container_name: portfolio
+   restart: always
+   
+   environment:
+      POSTGRES_USER: ${db_user}
+      POSTGRES_PASSWORD: ${db_password}
+      POSTGRES_DB: ${db_name}
+      
+   ports:
+     - "5433:5432"
+     
+   volumes:
+     - postgres_data:/var/lib/postgresql/data
+     
+   healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${db_user} -d ${db_name}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      
+  # ============================================================
+  # INITIALISATION DU VOLUME DES IMAGES
+  # ============================================================
+  uploads-init:
+     image: alpine:latest
+     container_name: portfolio_uploads_init
+     
+     volumes:
+       - portfolio_uploads:/app/uploads
+       
+     command: >
+     	sh -c "
+     	mkdir -p /app/uploads/portfolio &&
+     	chown -R 1001:1001 /app/portfolio
+     	"
+     	
+     	
+  backend:
+     build:
+       context: ./backend
+       dockerfile: Dockerfile
+       
+     container_name: portfolio_backend
+     restart: always
+     
+     ports:
+       - "8000:8000"
+     environment:
+        DATABASE_URL: postgresql://${db_user}:${db_password}@db:5432/${db_name}
+        PYTHONPATH: /app
+        
+        DB_USER: ${db_user}
+        DB_PASSWORD: ${db_password}
+        DB_HOST: db
+        DB_NAME: ${db_name}
+        
+        SECRET_KEY: ${SECRET_KEY}
+        ALGORITHM: ${ALGORITHM}
+        ACCESS_TOKEN_EXPIRE_MINUTES: ${ACCESS_TOKEN_EXPIRE_MINUTES}
+        
+     volumes:
+      - product_uploads:/app/uploads
+      
+      depends_on:
+        db:
+          condition: service_completed_successfully
+        
+        uploads-init:
+           condition: service_completed_successfully
+           
+           
+  frontend:
+    build:
+      context: ./admin
+      
+    container_name: portfolio_frontend
+    restart: always
+    
+    ports:
+      - "127.0.0.1:8080:80"
+      
+    depends_on:
+     - backend
+     
+volumes:
+  postgres_data:
+  portfolio_uploads:
+           
+    
